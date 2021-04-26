@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Доступные проекты</h1>
+<div class="jumbotron">
+  <h1 class="display-4">Добро пожаловать!</h1>
+  <p class="lead">Прекрасный день, чтобы основать свой собственный проект и найти единомышленников. Всё что нужно - нажать на кнопку.</p>
+  <hr class="my-4">
+  <p>Опубликуйте свой проект в пару кликов.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/add_job" role="button">Загрузить проект</a>
+  </p>
+</div>
+{% for item in news%}
+<div class="col-md6 border rounded">
+    <h2>{{item.job}}</h2>
+    <div>
+        {{item.content}}
+    </div>
+    <div>
+        Автор - {{item.user.name}}, Дата написания - {{item.created_date}}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
